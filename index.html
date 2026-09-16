@@ -1,383 +1,591 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joswin Borleo - Web Designer & Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #0f1115;
-            --card-bg: #181b22;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --accent: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.15);
-            --border: #2d3748;
-        }
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <title>Joswin Borleo - Senior Web Designer Portfolio</title>
+  <meta content="Portfolio of Joswin Borleo, Senior Web Designer specializing in Duda and HubSpot." name="description">
+  <meta content="Joswin Borleo, Web Designer, Duda Expert, HubSpot, Portfolio" name="keywords">
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    /* Custom styles for the new Created Websites grid section */
+    .created-websites-section {
+      padding: 60px 0;
+      background: #fdfbf7;
+    }
+    .created-websites-section .section-title h2 {
+      font-size: 32px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #222;
+    }
+    .project-card {
+      background: #ffffff;
+      border: 1px solid #eaeaea;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    }
+    .project-category {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 700;
+      color: #666;
+      margin-bottom: 12px;
+    }
+    .project-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 12px;
+    }
+    .project-description {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+    .project-btn {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      padding: 10px 20px;
+      border: 1px solid #222;
+      border-radius: 6px;
+      color: #222;
+      background: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .project-btn:hover {
+      background: #222;
+      color: #fff;
+      text-decoration: none;
+    }
+  </style>
 
-        header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.05) 0%, transparent 100%);
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 40px;
-            border-radius: 16px;
-        }
-
-        .profile-img-container {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid var(--accent);
-            box-shadow: 0 0 20px var(--accent-glow);
-            margin-bottom: 20px;
-        }
-
-        .profile-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -0.025em;
-            margin-bottom: 8px;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            color: var(--accent);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 20px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-        }
-
-        .contact-info span, .contact-info a {
-            background: var(--card-bg);
-            padding: 8px 16px;
-            border-radius: 30px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        section {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-main);
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 10px;
-        }
-
-        p {
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 12px;
-            margin-top: 15px;
-        }
-
-        .skill-tag {
-            background: var(--bg-color);
-            border: 1px solid var(--border);
-            padding: 12px 16px;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            text-align: center;
-            color: var(--text-main);
-            transition: transform 0.2s, border-color 0.2s;
-        }
-
-        .skill-tag:hover {
-            transform: translateY(-2px);
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        .projects-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .projects-list li {
-            margin-bottom: 12px;
-        }
-
-        .projects-list a {
-            color: var(--accent);
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: opacity 0.2s;
-        }
-
-        .projects-list a:hover {
-            opacity: 0.8;
-            text-decoration: underline;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-left: 25px;
-            border-left: 2px solid var(--border);
-            margin-bottom: 30px;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 4px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--accent);
-            box-shadow: 0 0 10px var(--accent);
-        }
-
-        .timeline-title {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        .timeline-company {
-            font-size: 0.95rem;
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
-
-        .timeline-date {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .timeline-item ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            color: var(--text-muted);
-        }
-
-        .timeline-item li {
-            margin-bottom: 6px;
-            font-size: 0.95rem;
-        }
-
-        .reference-card {
-            background: var(--bg-color);
-            border: 1px solid var(--border);
-            padding: 20px;
-            border-radius: 12px;
-        }
-
-        .reference-card h3 {
-            font-size: 1.1rem;
-            color: var(--text-main);
-            margin-bottom: 4px;
-        }
-
-        .reference-card p {
-            margin-bottom: 4px;
-            font-size: 0.9rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-            margin-top: 40px;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            .container {
-                padding: 20px 10px;
-            }
-        }
-    </style>
 </head>
+
 <body>
 
-    <div class="container">
-        <header>
-            <div class="profile-img-container">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80" alt="Joswin Borleo">
-            </div>
-            <h1>Joswin Borleo</h1>
-            <div class="subtitle">Web Designer / Web Developer</div>
-            <div class="contact-info">
-                <span>Cogeo Vill. Antipolo City</span>
-                <span>09165235050</span>
-                <a href="mailto:joswinborleo0413@gmail.com">Email Me</a>
-                <a href="https://joswinborleo.github.io/Duda/" target="_blank">Portfolio Link</a>
-            </div>
-        </header>
+  <!-- ======= Mobile toggle button ======= -->
+  <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
 
-        <section>
-            <h2>About Me</h2>
-            <p>As a Web Designer with 5+ years of experience, I specialize in creating responsive, conversion-focused websites using Duda and HubSpot. I hold Duda 2.0 and HIPAA Compliance certifications, delivering secure, industry-compliant designs for sectors like healthcare. Additionally, I have extensive experience building property sites for apartments and hotels while managing digital marketing across France, Italy, Spain, and Portugal.</p>
-        </section>
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
 
-        <section>
-            <h2>Sample Websites</h2>
-            <p>My sample websites built using Duda Editor:</p>
-            <ul class="projects-list">
-                <li><a href="#" target="_blank">ABS Drive School</a></li>
-                <li><a href="#" target="_blank">Allied Professionals</a></li>
-                <li><a href="#" target="_blank">PayLink</a></li>
-            </ul>
-        </section>
+      <div class="profile">
+        <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="index.html">Joswin Borleo</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="https://twitter.com/joswin" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="https://www.facebook.com/public/Joswin-Borleo" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="https://www.instagram.com/invites/contact/?i=1acuz1hhx55nk&utm_content=3p0b6kj" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="https://www.youtube.com/channel/UCObFyOIqK9ky3lXRa7jqfNg" class="google-plus"><i class="bx bxl-youtube"></i></a>
+          <a href="https://ph.linkedin.com/in/joswin-borleo-7b9037195" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
 
-        <section>
-            <h2>Skills & Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-tag">Duda Editor</div>
-                <div class="skill-tag">Wordpress</div>
-                <div class="skill-tag">HubSpot CRM</div>
-                <div class="skill-tag">Salesforce</div>
-                <div class="skill-tag">HTML, CSS, JS</div>
-                <div class="skill-tag">Photoshop / Illustrator</div>
-                <div class="skill-tag">SEO Management</div>
-                <div class="skill-tag">Jira</div>
-            </div>
-        </section>
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="#hero"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="#about"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="#resume"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+          <li><a href="#sample-websites"><i class="bx bx-book-content"></i> <span>Created Websites</span></a></li>
+          <li><a href="#services"><i class="bx bx-server"></i> Services</a></li>
+          <li><a href="#contact"><i class="bx bx-envelope"></i> Contact</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+      <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
 
-        <section>
-            <h2>Work Experience</h2>
-
-            <div class="timeline-item">
-                <div class="timeline-title">Web Designer</div>
-                <div class="timeline-company">Enshored PH (Travel Account)</div>
-                <div class="timeline-date">August 2025 to Present | Ortigas, Pasig</div>
-                <ul>
-                    <li>Built multi-market property websites for four European countries using HubSpot CRM.</li>
-                    <li>Localized web content for France, Italy, Spain, and Portugal to boost sales.</li>
-                    <li>Managed diverse property listings and CRM data for high-performance real estate sites.</li>
-                    <li>Performed quality assurance checks, maintaining an average QA score of 98%.</li>
-                    <li>Created and maintained Notion documentation for web design processes and workflows.</li>
-                </ul>
-            </div>
-
-            <div class="timeline-item" style="margin-top: 30px;">
-                <div class="timeline-title">Senior Analyst / Web Designer</div>
-                <div class="timeline-company">Eclerx Philippines</div>
-                <div class="timeline-date">April 2022 to August 2025 | Alabang, Muntinlupa</div>
-                <ul>
-                    <li>Building websites using Duda Editor and WordPress for custom solutions.</li>
-                    <li>Handling HIPAA Certified Websites with strict security standards.</li>
-                    <li>Managing SEO elements such as meta titles and meta descriptions.</li>
-                    <li>Using Salesforce as a primary CRM tool.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>Education</h2>
-            
-            <div class="timeline-item">
-                <div class="timeline-title">Information and Technology Services</div>
-                <div class="timeline-company">Gateways Institute of Science and Technology</div>
-                <div class="timeline-date">2019 to 2021</div>
-            </div>
-
-            <div class="timeline-item" style="margin-top: 30px;">
-                <div class="timeline-title">Information and Communications Technology</div>
-                <div class="timeline-company">Gateways Institute of Science and Technology</div>
-                <div class="timeline-date">2017 to 2019</div>
-            </div>
-        </section>
-
-        <section>
-            <h2>References</h2>
-            <div class="reference-card">
-                <h3>Emmanuel Luis Dumlao</h3>
-                <p><strong>Quality Analyst</strong></p>
-                <p>Phone: +63921-2308-342</p>
-                <p>Email: emmanluis.dumlao.ext@amenitiz.com</p>
-            </div>
-        </section>
-
-        <footer>
-            <p>2026 Joswin Borleo. All rights reserved.</p>
-        </footer>
     </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>Joswin Borleo</h1>
+      <p>I'm a <span class="typed" data-typed-items="Designer, Developer, Freelancer, Programmer"></span></p>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>About</h2>
+          <p>Hi! My name is Joswin V. Borleo. You can call me "Jos" or "Josh" if you see this masterpiece then I am allowing you to know who I am. Enjoy!</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3>Senior Analyst - Web Designer</h3>
+            <p class="font-italic">
+              For you to know me more, the written text under this are my personal information that I can share with you.
+            </p>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="icofont-rounded-right"></i> <strong>Birthday:</strong> 13 April 2000</li>
+                  <li><i class="icofont-rounded-right"></i> <strong>Email:</strong> joswinborleo0413@gmail.com</li>
+                  <li><i class="icofont-rounded-right"></i> <strong>Phone:</strong> +639165235050</li>
+                  <li><i class="icofont-rounded-right"></i> <strong>City:</strong> Antipolo, Philippines</li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="icofont-rounded-right"></i> <strong>Age:</strong> 25</li>
+                  <li><i class="icofont-rounded-right"></i> <strong>Course:</strong> ITS</li>
+                  <li><i class="icofont-rounded-right"></i> <strong>Hobbies:</strong> Playing Guitar and Editing</li>
+                  <li><i class="icofont-rounded-right"></i> <strong>Occupation:</strong> Senior Analyst - Web Designer</li>
+                </ul>
+              </div>
+            </div>
+            <p>
+            As a Web Designer with 5+ years of experience, I specialize in creating responsive, conversion-focused websites using Duda and HubSpot. I hold Duda 2.0 and HIPAA Compliance certifications, delivering secure, industry compliant designs for sectors like healthcare. Additionally, I have extensive experience building property sites for apartments and hotels while managing digital marketing across France, Italy, Spain, and Portugal.
+          </p></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Skills</h2>
+          <p>Percentage of my ability in terms of working, creating and designing a program and website.</p>
+        </div>
+
+        <div class="row skills-content">
+
+          <div class="col-lg-6" data-aos="fade-up">
+
+            <div class="progress">
+              <span class="skill">HTML <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">CSS <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">JavaScript <i class="val">75%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">SEO <i class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="progress">
+              <span class="skill">Duda Editor<i class="val">100%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Photoshop<i class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+               <div class="progress">
+              <span class="skill">Salesforce<i class="val">100%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Wordpress<i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Skills Section -->
+
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="resume">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Resume</h2>
+          <p>The written text below are my Resume as my strong personal Information.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-up">
+            <h3 class="resume-title">Summary</h3>
+            <div class="resume-item pb-0">
+              <h4>JOSWIN VENTURINA BORLEO</h4>
+              <p><em>Innovative and deadline-driven Web Designer with 5+ years of experience creating responsive websites and managing client-facing updates.</em></p>
+              <ul>
+                <li>Rd 27 Blk 35 Lot 42 Cogeo Village Antipolo City</li>
+                <li>(+63) 916 5235 050</li>
+                <li>joswinborleo0413@gmail.com</li>
+              </ul>
+            </div>
+
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h4>East Manila Integrated School</h4>
+              <h5>2012 - 2013</h5>
+              <p><em>Grade School, Antipolo City</em></p>
+              <p></p>
+            </div>
+            <div class="resume-item">
+              <h4>East Manila Integrated School</h4>
+              <h5>2013 - 2017</h5>
+              <p><em>Junior High-School, Antipolo City</em></p>
+              <p></p>
+            </div>
+
+	    <div class="resume-item">
+              <h4>Gateways Institute of Science And Technology</h4>
+              <h5>2017 - 2019</h5>
+              <p><em>Senior High-School, Antipolo City</em></p>
+              <p>TVL-Information Communication Technology</p>
+            </div>
+
+            <div class="resume-item">
+              <h4>Gateways Institute of Science And Technology</h4>
+              <h5>2019 - 2021</h5>
+              <p><em>College, Antipolo City</em></p>
+              <p>Information Communication Technology</p>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Professional Experience</h3>
+            <div class="resume-item">
+              <h4>Senior Analyst / Web Designer - Eclerx Philippines</h4>
+              <h5>April 2022 - August 2025</h5>
+              <p><em>Alabang, Muntinlupa</em></p>
+              <ul>
+                <li>Building website using Duda Editor</li>
+                <li>Building website using Wordpress for custom websites</li>
+                <li>Handling HIPAA Certified Websites</li>
+                <li>Managing SEO such as meta title and meta description</li>
+                <li>Using Salesforce as CRM</li>
+              </ul>
+            </div>
+            
+            <div class="resume-item">
+              <h4>Web Designer - Enshored PH (Travel Account)</h4>
+              <h5>August 2025 - Present</h5>
+              <p><em>Ortigas, Pasig</em></p>
+              <ul>
+                <li>Built multi-market property websites for four European countries using HubSpot CRM.</li>
+                <li>Localized web content for France, Italy, Spain, and Portugal to boost sales.</li>
+                <li>Managed diverse property listings and CRM data for high-performance real estate sites.</li>
+                <li>Performed quality assurance (QA) checks on websites and contents, maintaining an average QA score of 98% when doing website.</li>
+                <li>Created and maintained Notion documentation for web design processes, guidelines, and team workflows to improve consistency and efficiency.</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+                <h3 class="resume-title">Certifications</h3>
+                <ul>
+                  <li>Duda Certified on Editor 2.0</li>
+                  <li>Certified HIPAA Agent</li>
+                  <li>Duda Certified Platform Specialist</li>
+                </ul>
+            </div>
+             
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Resume Section -->
+
+    <!-- ======= Created Websites Section ======= -->
+    <section id="sample-websites" class="created-websites-section">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Created Websites</h2>
+        </div>
+
+        <div class="row">
+          <!-- Card 1 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="project-card">
+              <div>
+                <div class="project-category">Real Estate Platform</div>
+                <div class="project-title">Bondy Homes</div>
+                <div class="project-description">Custom architectural real estate platform built for interactive, fluid property management.</div>
+              </div>
+              <a href="https://bondyhomes.com/" target="_blank" class="project-btn">Launch Project ↗</a>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="project-card">
+              <div>
+                <div class="project-category">Cleantech & Solar</div>
+                <div class="project-title">Enuden Solar</div>
+                <div class="project-description">Modern green energy service framework optimizing client intake pipelines cleanly.</div>
+              </div>
+              <a href="https://enudensolar.com/" target="_blank" class="project-btn">Launch Project ↗</a>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-card">
+              <div>
+                <div class="project-category">European Hospitality</div>
+                <div class="project-title">Maison Calc</div>
+                <div class="project-description">Localized high-end regional property design serving international European markets.</div>
+              </div>
+              <a href="https://www.maisoncalc.com/en" target="_blank" class="project-btn">Launch Project ↗</a>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="project-card">
+              <div>
+                <div class="project-category">Property Marketing</div>
+                <div class="project-title">Apartment Concept</div>
+                <div class="project-description">Conversion-focused property blueprint designed for luxury apartment complex marketing.</div>
+              </div>
+              <a href="https://siteeditor.thryv.com/preview/c309747e?t=1753058240600&device=all" target="_blank" class="project-btn">View Live Preview ↗</a>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="project-card">
+              <div>
+                <div class="project-category">Luxury Hotels</div>
+                <div class="project-title">Boutique Hospitality</div>
+                <div class="project-description">Responsive lifestyle interface custom-tailored for hotels and booking optimization.</div>
+              </div>
+              <a href="https://siteeditor.thryv.com/preview/5822c713?t=1753058337613&device=all" target="_blank" class="project-btn">View Live Preview ↗</a>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-card">
+              <div>
+                <div class="project-category">Secure Ecosystems</div>
+                <div class="project-title">Medical Web Platform</div>
+                <div class="project-description">Secure, HIPAA-compliant layout built explicitly for trusted medical data systems.</div>
+              </div>
+              <a href="https://siteeditor.thryv.com/preview/b3a30017?t=1753058558845" target="_blank" class="project-btn">View Live Preview ↗</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Created Websites Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Services</h2>
+          <p>Hi! the following information that are listed below is my available services.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+            <div class="icon"><i class="icofont-computer"></i></div>
+            <h4 class="title"><a href="">Web Designing</a></h4>
+            <p class="description">Website Design for business purposes.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon"><i class="icofont-chart-bar-graph"></i></div>
+            <h4 class="title"><a href="">HIPAA</a></h4>
+            <p class="description">Handling HIPAA Websites to secure private data</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon"><i class="icofont-earth"></i></div>
+            <h4 class="title"><a href="">Search Engine Optimization</a></h4>
+            <p class="description">Handling SEO services to identify website problems and also to improve rankings</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon"><i class="icofont-image"></i></div>
+            <h4 class="title"><a href="">Logo Design</a></h4>
+            <p class="description">Business logo, products and Key Visual Editing.</p>
+          </div>
+    
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>For more information please contact me. Thank you and have a good day ahead!</p>
+        </div>
+
+        <div class="row" data-aos="fade-in">
+
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="icofont-google-map"></i>
+                <h4>Location:</h4>
+                <p>Rd 27 Blk 35 Lot 42 Cogeo Village Antipolo City</p>
+              </div>
+
+              <div class="email">
+                <i class="icofont-envelope"></i>
+                <h4>Email:</h4>
+                <p>joswinborleo0413@gmail.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="icofont-phone"></i>
+                <h4>Call:</h4>
+                <p>+63 916 5235 050</p>
+              </div>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.5242193449503!2d121.15934311415246!3d14.62615828037265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b8d7d61d8337%3A0x6a8288589027d2a3!2sCOGEO%20Ave%2C%20Antipolo%2C%201870%20Rizal!5e0!3m2!1sfil!2sph!4v1631510425262!5m2!1sfil!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+          </div>
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email">
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name">Subject</label>
+                <input type="text" class="form-request" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <main-footer>
+  <footer id="footer">
+    <div class="container">
+     
+      <div class="credits">
+        Designed by <a href="#">Joswin Borleo</a>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+  </main-footer>
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/counterup/counterup.min.js</i>"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
 
 </body>
+
 </html>
